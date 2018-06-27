@@ -1,0 +1,29 @@
+{
+  "name": "rest-mvc",
+  "version": "1.0.0",
+  "description": "REST API create with MVC",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menomanabdulla/REST-MVC.git"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "MVC"
+  ],
+  "author": "noman abdulla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/menomanabdulla/REST-MVC/issues"
+  },
+  "homepage": "https://github.com/menomanabdulla/REST-MVC#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5"
+  }
+}
