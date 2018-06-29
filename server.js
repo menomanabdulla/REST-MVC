@@ -4,16 +4,12 @@ const app  = express()
 const PORT = process.env.PORT||3000
 
 const mongoose = require('mongoose')
-
-//db connection
-mongoose.connect('mongodb://localhost/rest-mvc');
 mongoose.Promise = global.Promise
-
-const db = mongoose.connection
-db.on('err',err=>{
-    console.log(err)
-})
-db.once('open',()=>console.log('Database Conncected'))
+mongoose.connect('mongodb://menomanabdulla:noman123321BAPPY@ds121861.mlab.com:21861/rest-mvc')
+  .then(res => console.log(`DB Connected`))
+  .catch(err=>console.log(err))
+  //.catch(err => console.log(`${err}`))
+  //mongodb://<dbuser>:<dbpassword>@ds121861.mlab.com:21861/rest-mvc
 //custom module import
 const moviesRouter = require('./api/route/moviesRoute')
 
