@@ -1,3 +1,4 @@
+const Movie  = require('../module/movieModel')
 
 module.exports.getallController =  (req,res,next)=>{
     res.json({
@@ -10,9 +11,28 @@ module.exports.getSingleController = (req,res,next)=>{
     })
 }
 module.exports.postController = (req,res,next)=>{
-    res.json({
-        message: 'single movie post route from controller'
-    })
+   const movie = new Movie({
+    name: req.body.name,
+    year: req.body.year,
+    director: req.body.director,
+    catagory: req.body.catagory,
+    duration: req.body.duration
+   })
+   movie.save()
+   .then(data=>{
+       console.log(data)
+       res.status(201).json({
+           msg: 'Successfully added',
+           movie: data
+       })
+   })
+   .catch(err=>{
+       condole.log(err)
+       rest.status(500).josn({
+           msg: 'Error occired'
+       })
+   })
+
 }
 module.exports.patchController = (req,res,next)=>{
     res.json({
