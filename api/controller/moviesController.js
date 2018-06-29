@@ -1,8 +1,18 @@
 const Movie  = require('../module/movieModel')
 
 module.exports.getallController =  (req,res,next)=>{
-    res.json({
-        message: 'all movie get route from controller'
+    Movie.find()
+    .then(data=>{
+        res.json({
+            msg: 'All Moview List',
+            lenght: data.length,
+            data
+        })
+    })
+    .catch(err=>{
+        res.json({
+            msg: 'error occured'
+        })
     })
 }
 module.exports.getSingleController = (req,res,next)=>{
