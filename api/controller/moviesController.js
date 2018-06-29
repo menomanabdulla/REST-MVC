@@ -16,8 +16,18 @@ module.exports.getallController =  (req,res,next)=>{
     })
 }
 module.exports.getSingleController = (req,res,next)=>{
-    res.json({
-        message: 'single movie get route from controller'
+    const id = req.params.id
+    Movie.findOne({_id:id})
+    .then(data=>{
+        res.json({
+            msh: 'Single Movie List',
+            data
+        })
+    })
+    .catch(err=>{
+        res.json({
+            msg : 'Error Occured'
+        })
     })
 }
 module.exports.postController = (req,res,next)=>{
