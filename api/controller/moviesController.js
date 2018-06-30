@@ -55,12 +55,29 @@ module.exports.postController = (req,res,next)=>{
 
 }
 module.exports.patchController = (req,res,next)=>{
-    res.json({
-        message: 'single movie patch route from controller'
-    })
+   const  id =  req.params.id
+   Movie.findByIdAndUpdate(id,{$set:{
+        name: req.body.name,
+        year: req.body.year,
+        director: req.body.director,
+        catagory: req.body.catagory,
+        duration: req.body.duration
+   }})
+   .then(data=>{
+       console.log(data)
+       res.json(data)
+   })
+   .catch(err=>{
+       console.log(err)
+       res.json({
+           err
+       })
+   })
+
 }
 module.exports.deleteController = (req,res,next)=>{
     res.json({
         message: 'single movie delete route from controller'
     })
+    
 }
